@@ -1,0 +1,150 @@
+<div class="main-content">
+    <!-- Stats Cards Superiores -->
+    <div class="stats-cards-top">
+        <div class="stat-card-top purple">
+            <div class="stat-card-top-content">
+                <div class="stat-card-top-info">
+                    <div class="stat-card-top-value"></div>
+                    <div class="stat-card-top-label"></div>
+                    <div class="stat-card-top-trend">
+                        <span class="material-icons"></span>
+                        <span>Cargas Sin Réplica</span>
+                    </div>
+                </div>
+                <div class="stat-card-top-icon purple-light">
+                    <span class="material-icons">warning</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card-top orange">
+            <div class="stat-card-top-content">
+                <div class="stat-card-top-info">
+                    <div class="stat-card-top-value"></div>
+                    <div class="stat-card-top-label">Promedio por Bodega</div>
+                    <div class="stat-card-top-trend">
+                        <span class="material-icons"></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="stat-card-top-icon orange-light">
+                    <span class="material-icons">bar_chart</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card-top magenta">
+            <div class="stat-card-top-content">
+                <div class="stat-card-top-info">
+                    <div class="stat-card-top-value"></div>
+                    <div class="stat-card-top-label">Bodega con más cargas</div>
+                    <div class="stat-card-top-trend">
+                        <span class="material-icons"></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="stat-card-top-icon magenta-light">
+                    <span class="material-icons">star</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card-top teal">
+            <div class="stat-card-top-content">
+                <div class="stat-card-top-info">
+                    <div class="stat-card-top-value"></div>
+                    <div class="stat-card-top-label">Bodegas Afectadas</div>
+                    <div class="stat-card-top-trend">
+                        <span class="material-icons"></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="stat-card-top-icon teal-light">
+                    <span class="material-icons">store</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <!--Tabla de cargas np guiadas-->
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Detalle de Cargas Sin Réplica</div>
+                    <div class="card-subtitle">Información completa de cargas</div>
+                </div>
+                <div class="card-actions">...</div>
+            </div>
+            <div class="card-body" id="tablaDetalleCargas">
+                <!-- La tabla se renderizará aquí -->
+            </div>
+        </div>
+        <!-- GRÁFICO 1: Cargas No Guiadas -->
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Cargas Sin Replica</div>
+                    <div class="card-subtitle">Distribución de cargas sin guiar</div>
+                </div>
+                <div class="card-actions">
+                    <button class="icon-btn" title="Actualizar" onclick="refreshChartNoGuiadas()">
+                        <span class="material-icons">refresh</span>
+                    </button>
+                    <button class="icon-btn" title="Download">
+                        <span class="material-icons">download</span>
+                    </button>
+                    <button class="icon-btn" title="Print">
+                        <span class="material-icons">print</span>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="metrics" id="metricsNoGuiadas">
+                    <div class="metric">
+                        <div class="metric-label">Total Cargas</div>
+                        <div class="metric-value">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Promedio por Bodega</div>
+                        <div class="metric-value">-</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Bodega Top</div>
+                        <div class="metric-value success">-</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-y-axis" id="yAxisNoGuiadas">
+                        <div>-</div>
+                        <div>-</div>
+                        <div>-</div>
+                        <div>-</div>
+                    </div>
+                    <div class="chart-area" id="chartAreaNoGuiadas">
+                        <div style="width: 100%; text-align: center; color: #999; padding: 40px 0;">
+                            <span class="material-icons" style="font-size: 48px; opacity: 0.3;">bar_chart</span>
+                            <p style="margin-top: 12px; font-size: 14px;">Cargando datos del gráfico...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        
+                        <span></span>
+                    </div>
+                    <div class="legend-item">
+                        
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- NUEVA CARD: Tabla de Detalle de Cargas -->
+</div>
+
+<script src="../static/JS/cargas-replica.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>

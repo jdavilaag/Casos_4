@@ -1,0 +1,22 @@
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-menu">
+
+        <div class="sidebar-item {% if request.path == '/' %}active{% endif %}">
+            <a href="{{ url_for('home') }}"></a>
+            <span class="material-icons">dashboard</span>
+            <span>Sin Guia</span>
+        </div>
+
+        <div class="sidebar-item {% if request.path == '/sin_replica' %}active{% endif %}">
+            <a href="{{ url_for('sin_replica') }}"></a>
+            <span class="material-icons">bar_chart</span>
+            <span>Sin Replica</span>
+        </div>
+
+        <div class="sidebar-item {% if request.path == '/ajustes' %}active{% endif %}">
+            <a href="#"></a>
+            <span class="material-icons">settings</span>
+            <span>Ajustes</span>
+        </div>
+    </div>
+</div>

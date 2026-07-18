@@ -1,0 +1,236 @@
+<div class="main-content">
+        <!-- Tarjetas superiores -->
+        <div class="stats-cards-top">
+            <div class="stat-card-top purple">
+                <div class="stat-card-top-content">
+                    <div class="stat-card-top-info">
+                        <div class="stat-card-top-value"></div>
+                        <div class="stat-card-top-label"></div>
+                        <div class="stat-card-top-trend">
+                            <span class="material-icons"></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="stat-card-top-icon purple-light">
+                        <span class="material-icons"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card-top orange">
+                <div class="stat-card-top-content">
+                    <div class="stat-card-top-info">
+                        <div class="stat-card-top-value"></div>
+                        <div class="stat-card-top-label"></div>
+                        <div class="stat-card-top-trend">
+                            <span class="material-icons"></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="stat-card-top-icon orange-light">
+                        <span class="material-icons"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card-top magenta">
+                <div class="stat-card-top-content">
+                    <div class="stat-card-top-info">
+                        <div class="stat-card-top-value"></div>
+                        <div class="stat-card-top-label"></div>
+                        <div class="stat-card-top-trend">
+                            <span class="material-icons"></span>
+                            <span> </span>
+                        </div>
+                    </div>
+                    <div class="stat-card-top-icon magenta-light">
+                        <span class="material-icons"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card-top teal">
+                <div class="stat-card-top-content">
+                    <div class="stat-card-top-info">
+                        <div class="stat-card-top-value"></div>
+                        <div class="stat-card-top-label"></div>
+                        <div class="stat-card-top-trend">
+                            <span class="material-icons"></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="stat-card-top-icon teal-light">
+                        <span class="material-icons"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-container">
+            <!-- Tabla de datos cargas sin guiar -->
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Listado de Cargas</div>
+                        <div class="card-subtitle">Tiendas Afectadas</div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="icon-btn" title="Download">
+                            <span class="material-icons">download</span>
+                        </button>
+                        <button class="icon-btn" title="Print">
+                            <span class="material-icons">print</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-controls">
+                        <div class="entries-control">
+                            <select id="entriesPerPage">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                            </select>
+                            <span>entries per page</span>
+                        </div>
+                        <div class="search-control">
+                            <input type="text" id="searchInput" placeholder="Search...">
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="th-content">
+
+                                            <span class="material-icons sort-icon"></span>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="th-content" data-sort="bodega">
+                                            Bodega
+                                            <span class="material-icons sort-icon"></span>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="th-content" data-sort="load_nbr">
+                                            Carga
+                                            <span class="material-icons sort-icon"></span>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="th-content" data-sort="tienda">
+                                            Tiendas
+                                            <span class="material-icons sort-icon"></span>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="th-content" data-sort="create_date_time">
+                                            Fecha Creación
+                                            <span class="material-icons sort-icon"></span>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-footer">
+                        <div class="showing-entries" id="cargasShowing">Showing 1 to 5 of 100 entries</div>
+                        <div class="pagination" id="cargasPagination">
+                            <!-- el JS lo rellenará dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grafico Pie -->
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Cargas por Bodega</div>
+                        <div class="card-subtitle">Total y porcentaje</div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="icon-btn" title="More options">
+                            <span class="material-icons">more_vert</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="pie-container">
+                        <svg class="pie-chart" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#5500dd" stroke-width="20"
+                                stroke-dasharray="88 163" stroke-dashoffset="25" />
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#00bfa5" stroke-width="20"
+                                stroke-dasharray="63 188" stroke-dashoffset="-63" />
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#9c27b0" stroke-width="20"
+                                stroke-dasharray="50 201" stroke-dashoffset="-126" />
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#ffa726" stroke-width="20"
+                                stroke-dasharray="50 201" stroke-dashoffset="-176" />
+                        </svg>
+                    </div>
+                    <div class="pie-legend">
+                        <div class="pie-legend-item">
+                            <div class="pie-legend-color" style="background: #5500dd;"></div>
+                            <div class="pie-legend-label">Alpha</div>
+                        </div>
+                        <div class="pie-legend-item">
+                            <div class="pie-legend-color" style="background: #00bfa5;"></div>
+                            <div class="pie-legend-label">Beta</div>
+                        </div>
+                        <div class="pie-legend-item">
+                            <div class="pie-legend-color" style="background: #9c27b0;"></div>
+                            <div class="pie-legend-label">Gamma</div>
+                        </div>
+                        <div class="pie-legend-item">
+                            <div class="pie-legend-color" style="background: #ffa726;"></div>
+                            <div class="pie-legend-label">Delta</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- NUEVO: Script para gráfico pie -->
+    <script src="../static/JS/pie-chart-loader.js"></script>
+    <script src="../static/JS/table-script.js"></script>

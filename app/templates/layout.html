@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Cuadraturas</title>
+    <link href="../static/css/cdn_bootstrap.css" rel="stylesheet">
+    <link href="../static/css/Fonts.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/Fonts_google.css">
+    <link rel="stylesheet" href="../static/css/styl.css">
+</head>
+
+<body class="has-footer">
+    <!-- Barra superior (topbar) -->
+    {% include 'components/header.html' %}
+
+    <!-- Barra lateral (sidebar) -->
+    {% include 'components/sidebar.html' %}
+
+    <!-- CONTENIDO PRINCIPAL -->
+    {% block content %}{% endblock %}
+
+    <!-- ===== Footer ===== -->
+    {% include 'components/footer.html' %}
+    <!-- ===== /Footer ===== -->
+
+
+    <!-- Scripts existentes -->
+    <script src="../static/JS/bootstrap_min.js"></script>
+    <script src="../static/JS/script.js"></script>
+
+    
+    
+</body>
+
+</html>

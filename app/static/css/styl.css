@@ -1,0 +1,1009 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Topbar */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    z-index: 1000;
+}
+
+.topbar-menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 7px;
+    margin-right: 14px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.topbar-menu-toggle:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #6600ff;
+}
+
+.topbar-spacer {
+    flex: 1;
+}
+
+.topbar-menu {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 220px;
+    height: calc(100vh - 56px);
+    background: white;
+    box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.sidebar.closed {
+    transform: translateX(-100%);
+}
+
+.sidebar-menu {
+    padding: 18px 0;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.sidebar-item:hover {
+    background: rgba(102, 0, 255, 0.05);
+    color: #6600ff;
+}
+
+.sidebar-item.active {
+    background: rgba(102, 0, 255, 0.1);
+    color: #6600ff;
+    font-weight: 500;
+    border-right: 3px solid #6600ff;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 220px;
+    margin-top: 56px;
+    padding: 18px;
+    transition: margin-left 0.3s ease;
+    width: calc(100% - 220px);
+}
+
+.main-content.expanded {
+    margin-left: 0;
+    width: 100%;
+}
+
+/* Stats Cards Top */
+.stats-cards-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 26px;
+    width: 100%;
+}
+
+.stat-card-top {
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.stat-card-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.stat-card-top.purple {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); /* Royal sky blue gradient */
+}
+
+.stat-card-top.orange {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); /* Amber orange gradient */
+}
+
+.stat-card-top.magenta {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); /* Violet purple gradient */
+}
+
+.stat-card-top.teal {
+    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%); /* Rich teal gradient */
+}
+
+.stat-card-top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.stat-card-top-info {
+    flex: 1;
+}
+
+.stat-card-top-value {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    line-height: 1.2;
+}
+
+.stat-card-top-label {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.stat-card-top-trend {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+.stat-card-top-trend .material-icons {
+    font-size: 14px;
+}
+
+.stat-card-top-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-card-top-icon .material-icons {
+    font-size: 28px;
+}
+
+.purple-light {
+    background: rgba(255,255,255,0.25);
+    color: white;
+}
+
+.orange-light {
+    background: rgba(255,255,255,0.25);
+    color: white;
+}
+
+.magenta-light {
+    background: rgba(255,255,255,0.25);
+    color: white;
+}
+
+.teal-light {
+    background: rgba(255,255,255,0.25);
+    color: white;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 18px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.table-card {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #1469e1 0%, #0c4ea6 100%); /* Sodimac-inspired blue gradient */
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.card-actions {
+    display: flex;
+    gap: 7px;
+}
+
+.icon-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.icon-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.card-body {
+    padding: 28px;
+}
+
+.metrics {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin-bottom: 18px;
+    justify-content: center;
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.metric-value {
+    font-size: 25px;
+    font-weight: 500;
+    color: #333;
+}
+
+.metric-value.success {
+    color: #dc3545;
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    margin-bottom: 8px;
+}
+
+.chart-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.chart-y-axis {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 45px;
+    width: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #999;
+    font-size: 11px;
+}
+
+.chart-area {
+    position: absolute;
+    left: 52px;
+    right: 0;
+    top: 0;
+    bottom: 45px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    padding: 0 18px;
+}
+
+.bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+}
+
+.bars {
+    width: 100%;
+    display: flex;
+    gap: 3px;
+    align-items: flex-end;
+    height: 240px;
+}
+
+.bar {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.bar:hover {
+    opacity: 0.8;
+    transform: translateY(-4px);
+}
+
+.bar.light {
+    background: #b39ddb;
+}
+
+.bar.dark {
+    background: #5500dd;
+}
+
+.month-label {
+    font-size: 11px;
+    color: #666;
+    margin-top: 7px;
+}
+
+.legend {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: #666;
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+}
+
+/* Pie Chart */
+.pie-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    position: relative;
+    padding-top: 10px;
+}
+
+.pie-chart {
+    width: 300px;
+    height: 300px;
+}
+
+.pie-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.pie-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pie-legend-color {
+    width: 17px;
+    height: 17px;
+    border-radius: 3px;
+}
+
+.pie-legend-label {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Table Styles */
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 14px;
+    width: 100%;
+}
+
+.entries-control {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: #666;
+}
+
+.entries-control select {
+    padding: 7px 28px 7px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.search-control input {
+    padding: 7px 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+    width: 220px;
+}
+
+.search-control input:focus {
+    outline: none;
+    border-color: #6600ff;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.data-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    background: white;
+}
+
+.data-table th {
+    background: #f8f9fa;
+    padding: 14px;
+    text-align: left;
+    font-weight: 500;
+    color: #666;
+    border-bottom: 2px solid #e0e0e0;
+    white-space: nowrap;
+}
+
+.th-content {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.sort-icon {
+    font-size: 16px;
+    color: #999;
+}
+
+.data-table td {
+    padding: 14px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+}
+
+.data-table tbody tr {
+    transition: background 0.2s;
+}
+
+.data-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.showing-entries {
+    font-size: 12px;
+    color: #666;
+}
+
+.pagination {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.page-btn {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    background: white;
+    color: #666;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 12px;
+}
+
+.page-btn:hover:not(:disabled):not(.active) {
+    background: #f5f5f5;
+    border-color: #6600ff;
+    color: #6600ff;
+}
+
+.page-btn.active {
+    background: #6600ff;
+    color: white;
+    border-color: #6600ff;
+}
+
+.page-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.page-dots {
+    color: #666;
+    padding: 0 3px;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-cards-top {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .topbar-brand span:last-child {
+        display: none;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card-actions {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .main-content.expanded {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .stats-cards-top {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .dashboard-container {
+        width: 100%;
+    }
+
+    .stat-card-top {
+        padding: 17px;
+    }
+
+    .stat-card-top-value {
+        font-size: 28px;
+    }
+
+    .stat-card-top-label {
+        font-size: 12px;
+    }
+
+    .stat-card-top-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .stat-card-top-icon .material-icons {
+        font-size: 24px;
+    }
+
+    .topbar {
+        padding: 0 10px;
+    }
+
+    .card-header {
+        padding: 14px;
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    .card-body {
+        padding: 14px;
+    }
+
+    .metrics {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .metric-value {
+        font-size: 24px;
+    }
+
+    .chart-container {
+        height: 260px;
+    }
+
+    .chart-area {
+        gap: 5px;
+        padding: 0 8px;
+    }
+
+    .month-label {
+        font-size: 9px;
+    }
+
+    .legend {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .pie-container {
+        height: 260px;
+    }
+
+    .pie-chart {
+        width: 240px;
+        height: 240px;
+    }
+
+    .pie-legend {
+        grid-template-columns: 1fr;
+    }
+
+    .search-control input {
+        width: 100%;
+    }
+
+    .table-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .entries-control {
+        justify-content: flex-start;
+    }
+
+    .table-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .pagination {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 7px;
+    }
+
+    .data-table {
+        font-size: 11px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 10px 7px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        height: 50px;
+    }
+
+    .sidebar {
+        top: 50px;
+        height: calc(100vh - 50px);
+    }
+
+    .main-content {
+        margin-top: 50px;
+    }
+
+    .stats-cards-top {
+        gap: 10px;
+        margin-bottom: 17px;
+    }
+
+    .stat-card-top {
+        padding: 14px;
+    }
+
+    .stat-card-top-value {
+        font-size: 24px;
+    }
+
+    .stat-card-top-label {
+        font-size: 11px;
+    }
+
+    .stat-card-top-trend {
+        font-size: 9px;
+    }
+
+    .stat-card-top-trend .material-icons {
+        font-size: 12px;
+    }
+
+    .stat-card-top-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .stat-card-top-icon .material-icons {
+        font-size: 21px;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .card-subtitle {
+        font-size: 11px;
+    }
+
+    .metrics {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .metric-label {
+        font-size: 10px;
+    }
+
+    .metric-value {
+        font-size: 20px;
+    }
+
+    .chart-container {
+        height: 220px;
+    }
+
+    .chart-y-axis {
+        font-size: 9px;
+        width: 45px;
+    }
+
+    .chart-area {
+        left: 45px;
+    }
+
+    .month-label {
+        font-size: 8px;
+    }
+
+    .pie-chart {
+        width: 210px;
+        height: 210px;
+    }
+
+    .page-btn {
+        min-width: 28px;
+        height: 28px;
+        font-size: 11px;
+    }
+
+    .table-responsive {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .data-table {
+        font-size: 10px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 8px 5px;
+        white-space: nowrap;
+    }
+}
+
+
+/* === Footer RESET: alinea exactamente como el topbar (padding 0 18px) === */
+.app-footer.overlay {
+  position: fixed;
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  height: 48px;
+  background: #ffffff;
+  border-top: 1px solid #eaeaea;
+  color: #565f66;
+  display: flex;
+  align-items: center;
+  z-index: 1100;                 /* por encima del sidebar/toggle */
+  padding: 0 18px !important;    /* MISMO padding que .topbar (0 18px) */
+  box-sizing: border-box;
+  /* Limpia posibles herencias anteriores */
+  transform: none; 
+  will-change: auto; 
+  contain: layout paint style;
+}
+
+/* Contenedor interno: fila izquierda-derecha, SIN reservorios ni offsets */
+.app-footer .footer-content {
+  width: 100%;
+  max-width: 100%;               /* que no se centre ni deje bordes */
+  margin: 0;                     /* elimina márgenes previos */
+  padding: 0;                    /* elimina padding-left extra de versiones previas */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* izquierda (marca) | derecha (links+©) */
+  gap: 12px;
+}
+
+/* Marca a la IZQUIERDA en flujo normal (no fixed) para no “empujar” nada */
+.app-footer .footer-left.footer-brand {
+  position: static !important;   /* anula position:fixed anterior */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+/* Estética de la marca */
+.app-footer .footer-left .material-icons { 
+  font-size: 18px; 
+  color: #6600ff;
+}
+.app-footer .brand { 
+  font-weight: 600; 
+  color: #2f3542; 
+}
+.app-footer .divider, 
+.app-footer .dot { 
+  color: #c5c9cc; 
+}
+
+/* Bloque derecho: enlaces + ©, pegado al borde derecho del footer (con el padding 18px) */
+.app-footer .footer-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+/* Enlaces: estilo y hover */
+.footer-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-link {
+  color: #59636b;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color .18s ease, text-decoration-color .18s ease;
+}
+.footer-link:hover {
+  color: #6600ff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Evita que textos largos rompan la altura del footer */
+.app-footer .footer-left span,
+.app-footer .footer-right span {
+  display: inline-block;
+  max-width: 45vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+
+/* Reserva para que el footer no tape el contenido (mantén tu clase has-footer en <body>) */
+.has-footer .main-content {
+  padding-bottom: 62px !important; /* 48px footer + respiro */
+}
+
+/* (Opcional pero recomendado) cuando el sidebar se oculta, quita su sombra (“la línea” que viste) */
+.sidebar.closed {
+  box-shadow: none !important;
+}
+
+/* Responsive: no añadimos offsets ni cambios de padding,
+   solo dejamos que el flex se comprima elegantemente */
+@media (max-width: 768px) {
+  .app-footer .footer-content {
+    gap: 8px;
+  }
+}
+
+
+/*NAVEGAR*/
+.sidebar-item {
+    position: relative;
+}
+
+.sidebar-item a {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+}
